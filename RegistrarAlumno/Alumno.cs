@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace AppAlumno
 {
     public class Alumno
-    {
+    {// Automatic properties
         public int Id { get; set; }
         public string Nombre { get; set; }
         public string Apellidos { get; set; }
@@ -41,9 +41,10 @@ namespace AppAlumno
             hashCode = hashCode * -1521134295 + EqualityComparer<string>.Default.GetHashCode(DNI);
             return hashCode;
         }
-        public override string ToString()
+        public override string ToString()//convierte los objetos en string, si no l hay te devuelve la ruta del objeto
         {
             return "id "+Id + "nombre: "+ Nombre+"apellidos: " + Apellidos +"dni: " + DNI;
         }
     }
+    //ademas tiene que existir un metodo ToJson(), convertir el objeto en json y devolviendo
 }

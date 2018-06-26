@@ -1,41 +1,15 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using Newtonsoft.Json;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.IO;
-using Newtonsoft.Json.Linq;
 
-namespace AppAlumno
+namespace AppAlumno.Integration.Test
 {
-    public class Funciones
-    {       
-        public static void RegistrarAlumno(Alumno alum, string path)
-        {
-            List<Alumno> listaAlumno = new List<Alumno> { alum };
-            string alumJson = JsonConvert.SerializeObject(listaAlumno, Formatting.Indented);
-
-            using (StreamWriter sw = File.CreateText(path))
-                sw.WriteLine(alumJson);
-        }
-
-        public static void addAlumno(Alumno alum, string path)
-        {
-            List<Alumno> listaAlumno = new List<Alumno>();
-
-            using (StreamReader sr = new StreamReader(path))
-            {
-                string read = sr.ReadToEnd();
-                listaAlumno = JsonConvert.DeserializeObject<List<Alumno>>(read);
-            }
-
-            listaAlumno.Add(alum);
-            string alumnosFicheroNew = JsonConvert.SerializeObject(listaAlumno, Formatting.Indented);
-
-            using (StreamWriter sw = File.CreateText(path))
-                sw.WriteLine(alumnosFicheroNew);
-        }
+    class FuncionesTest
+    {
 
         public static List<Alumno> getJson(string path)
         {

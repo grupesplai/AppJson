@@ -1,6 +1,6 @@
 ﻿namespace AppAlumno
 {
-    public interface IAppAlumno
+    public interface IALumnoRepository
     {
         Alumno Registrar(Alumno alum);
     }
